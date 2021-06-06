@@ -1,0 +1,52 @@
+{
+  "IdGen": {
+    "AppId": 1,
+    "TimestampBits": 45,
+    "GeneratorIdBits": 2,
+    "SequenceBits": 16,
+    "epoch": "2020-06-01"
+  },
+
+  "RedisCache": {
+    "Connection": "localhost",
+    "Port": 6379,
+    "EntityDBs": 4
+  },
+
+  "MongoPersist": {
+    "Connection": "mongodb://localhost:27017"
+  },
+
+  "Orleans": {
+    "ClusterId": "Cluster",
+    "ServiceId": "Service",
+    "HostName": "127.0.0.1",
+    "SiloPort": 11111,
+    "GatewayPort": 30000,
+    "Database": "orleans",
+    "Connection": "mongodb://localhost:27017/"
+  },
+
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "WriteTo": [
+      {
+        "Name": "Async",
+        "Args": {
+          "configure": [
+            {
+              "Name": "Console"
+            },
+            {
+              "Name": "MongoDBBson",
+              "Args": {
+                "databaseUrl": "mongodb://localhost:27017/log",
+                "collectionName": "silo"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}

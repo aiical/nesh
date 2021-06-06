@@ -1,0 +1,36 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>Exe</OutputType>
+    <TargetFramework>net5.0</TargetFramework>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Microsoft.Extensions.Hosting" Version="5.0.0" />
+    <PackageReference Include="Microsoft.Orleans.ProtobufNet" Version="3.4.3" />
+    <PackageReference Include="Microsoft.Orleans.Server" Version="3.4.3" />
+    <PackageReference Include="MongoDB.Driver" Version="2.12.4" />
+    <PackageReference Include="Orleans.Providers.MongoDB" Version="3.3.0" />
+    <PackageReference Include="protobuf-net" Version="3.0.101" />
+    <PackageReference Include="Serilog.Enrichers.Environment" Version="2.2.0-dev-00784" />
+    <PackageReference Include="Serilog.Extensions.Hosting" Version="4.1.2" />
+    <PackageReference Include="Serilog.Settings.Configuration" Version="3.2.0-dev-00272" />
+    <PackageReference Include="Serilog.Sinks.Async" Version="1.4.1-dev-00079" />
+    <PackageReference Include="Serilog.Sinks.Console" Version="4.0.0-dev-00839" />
+    <PackageReference Include="Serilog.Sinks.MongoDB" Version="5.0.0-dev-00104" />
+    <PackageReference Include="StackExchange.Redis.Extensions.Core" Version="7.0.1" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <ProjectReference Include="..\Game.Modules\Game.Modules.csproj" />
+    <ProjectReference Include="..\Game.Resources\Game.Resources.csproj" />
+    <ProjectReference Include="..\Nesh.Runtime\Nesh.Runtime.csproj" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <None Update="config.json">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+  </ItemGroup>
+
+</Project>

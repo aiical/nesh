@@ -1,0 +1,45 @@
+{
+  "UdpSocket": {
+    "port": "22222"
+  },
+  "TcpSocket": {
+    "address": "127.0.0.1",
+    "port": "23456"
+  },
+  "WebSocket": {
+    "ssl": "false",
+    "port": "8080",
+    "path": "/websocket",
+    "libuv": "false",
+    "password": "password"
+  },
+  "Orleans": {
+    "ClusterId": "Cluster",
+    "ServiceId": "Service",
+    "HostName": "127.0.0.1",
+    "SiloPort": 11111,
+    "GatewayPort": 30000,
+    "Database": "orleans",
+    "Connection": "mongodb://localhost:27017/"
+  },
+  "Serilog": {
+    "MinimumLevel": "Information",
+    "WriteTo": [
+      {
+        "Name": "Async",
+        "Args": {
+          "configure": [
+            { "Name": "Console" },
+            {
+              "Name": "MongoDBBson",
+              "Args": {
+                "databaseUrl": "mongodb://localhost:27017/log",
+                "collectionName": "gate"
+              }
+            }
+          ]
+        }
+      }
+    ]
+  }
+}
